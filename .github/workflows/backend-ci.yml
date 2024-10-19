@@ -40,10 +40,8 @@ jobs:
           cache: 'maven'
       - uses: docker/login-action@v2
         with:
-          username: ${{ env.USERNAME }}
-          password: ${{ env.PASSWORD }}
+          username: solenja
+          password: Agenobarb
       - name: Build and run tests with Maven
         run: mvn -ntp -B verify
-        env:
-          USERNAME: solenja
-          PASSWORD: Agenobarb
+
