@@ -44,3 +44,6 @@ jobs:
           password: ${{ env.PASSWORD }}
       - name: Build and run tests with Maven
         run: mvn -ntp -B verify
+        env:
+          USERNAME: solenja
+          PASSWORD: Agenobarb
