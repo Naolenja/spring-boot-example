@@ -38,5 +38,5 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
           cache: 'maven'
-      - name: Build and run testswith Maven
+      - name: Build and run tests with Maven
         run: mvn -ntp -B verify
