@@ -3,7 +3,7 @@
   "containerDefinitions": [
     {
       "name": "sol-api",
-      "image": "solenja/sol-api29.10.2024",
+      "image": "solenja/sol-api:29.10.2024",
       "essential": true,
       "memory": 512,
       "portMappings": [
@@ -15,7 +15,7 @@
       "environment": [
         {
           "name": "SPRING_DATASOURCE_URL",
-          "value": "jdbc:postgresql://awseb-e-hme42qj3bm-stack-awsebrdsdatabase-gzrihqd9qmrj.cdgouo46ihh9.eu-north-1.rds.amazonaws.com:5432/customer"
+          "value": "jdbc:postgresql://awseb-e-pa68v6pv2k-stack-awsebrdsdatabase-sd0ukzja3ywr.cdgouo46ihh9.eu-north-1.rds.amazonaws.com:5432/customer"
         }
       ]
     }
