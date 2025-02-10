@@ -39,6 +39,11 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
           cache: 'maven'
+      - name: Slack commit message and sha
+        run: >
+          curl -X POST -H 'Content-type: application/json' 
+          --data '{"text":":github: https://github.com/Naolenja/spring-boot-example/commit/${{ github.sha }} - ${{ github.event.head_commit.message }}"}' 
+          ${{ secrets.SLACK_WEBHOOK_URL }}
       - name: Send deployment started slack message
         run: >
           curl -X POST -H 'Content-type: application/json' 
