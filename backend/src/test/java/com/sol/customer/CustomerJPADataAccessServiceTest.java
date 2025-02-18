@@ -46,7 +46,7 @@ class CustomerJPADataAccessServiceTest {
     @Test
     void insertCustomer() {
         //Given
-        Customer customer = new Customer(1L, "Ivan", "dolboeb@email.io", 9);
+        Customer customer = new Customer(1L, "Ivan", "dolboeb@email.io", 9, Gender.MALE);
         //When
         underTest.insertCustomer(customer);
         //Then
@@ -59,7 +59,8 @@ class CustomerJPADataAccessServiceTest {
         Customer customer = new Customer(1L,
                 "Ivan",
                 "dolboeb@email.io",
-                9);
+                9,
+                Gender.MALE);
         //When
         underTest.updateCustomer(customer);
         //Then

@@ -5,6 +5,7 @@ import com.github.javafaker.Name;
 import com.sol.customer.Customer;
 import com.sol.customer.CustomerRegistrationRequest;
 import com.sol.customer.CustomerUpdateRequest;
+import com.sol.customer.Gender;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -38,8 +39,9 @@ public class CustomerIT {
                 + UUID.randomUUID()
                 + "whatever.io";
         int age = RANDOM.nextInt(0,120);
+        Gender gender = Gender.randomGender();
         CustomerRegistrationRequest request
-                = new CustomerRegistrationRequest(name, email, age);
+                = new CustomerRegistrationRequest(name, email, age, gender);
         // send a post request
         webTestClient.post()
                 .uri(CUSTOMER_URI)
@@ -63,7 +65,7 @@ public class CustomerIT {
                 .returnResult()
                 .getResponseBody();
         //make sure, customer is present
-        Customer expectedCustomer = new Customer(name, email, age);
+        Customer expectedCustomer = new Customer(name, email, age, gender);
         assertThat(allCustomers)
                 .usingRecursiveFieldByFieldElementComparatorIgnoringFields("id").contains(expectedCustomer);
         //get customer by id
@@ -90,8 +92,9 @@ public class CustomerIT {
                 + UUID.randomUUID()
                 + "whatever.io";
         int age = RANDOM.nextInt(0,120);
+        Gender gender = Gender.randomGender();
         CustomerRegistrationRequest request
-                = new CustomerRegistrationRequest(name, email, age);
+                = new CustomerRegistrationRequest(name, email, age, gender);
         // send a post request
         webTestClient.post()
                 .uri(CUSTOMER_URI)
@@ -142,8 +145,9 @@ public class CustomerIT {
                 + UUID.randomUUID()
                 + "whatever.io";
         int age = RANDOM.nextInt(0,120);
+        Gender gender = Gender.randomGender();
         CustomerRegistrationRequest request
-                = new CustomerRegistrationRequest(name, email, age);
+                = new CustomerRegistrationRequest(name, email, age, gender);
         // send a post request
         webTestClient.post()
                 .uri(CUSTOMER_URI)
@@ -176,8 +180,9 @@ public class CustomerIT {
                 + UUID.randomUUID()
                 + "updated.io";
         int updateAge = RANDOM.nextInt(0,120);
+        Gender updateGender = Gender.randomGender();
         CustomerUpdateRequest updateRequest
-                = new CustomerUpdateRequest(updateName, updateEmail, updateAge);
+                = new CustomerUpdateRequest(updateName, updateEmail, updateAge, updateGender);
         //send a put request
         webTestClient.put()
                 .uri(CUSTOMER_URI + "/{id}", id)
@@ -191,7 +196,7 @@ public class CustomerIT {
                 .expectStatus()
                 .isOk();
         //get customer by id
-        Customer expectedCustomer = new Customer(updateName, updateEmail, updateAge);
+        Customer expectedCustomer = new Customer(updateName, updateEmail, updateAge, updateGender);
         expectedCustomer.setId(id);
         webTestClient.get()
                 .uri(CUSTOMER_URI + "/{id}", id)

@@ -40,10 +40,10 @@ const App = () =>{
 
     return (<ResponsiveDrawer>
                 <div style={{
-                           display: 'flex',               // Flex container for cards
-                           justifyContent: 'center',      //Center alignment
-                           gap: '30px',                   // Gap between cards
-                           flexWrap: 'wrap',              // Wrap cards to the next line if needed
+                           display: 'flex',               // Flex container for cards.
+                           justifyContent: 'center',      //Center alignment.
+                           gap: '30px',                   // Gap between cards.
+                           flexWrap: 'wrap',              // Wrap cards to the next line.
                          }}>
                     {customers.map((customer, index) =>(
                         <CardWithImage

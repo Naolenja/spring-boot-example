@@ -31,7 +31,12 @@ public class CustomerService {
             throw new DuplicateResourceException("Email already taken.");
         }
         //add
-        customerDao.insertCustomer(new Customer(customerRegistrationRequest.name(), customerRegistrationRequest.email(), customerRegistrationRequest.age()));
+        customerDao.insertCustomer(new Customer(
+                customerRegistrationRequest.name(),
+                customerRegistrationRequest.email(),
+                customerRegistrationRequest.age(),
+                customerRegistrationRequest.gender()
+        ));
     }
     public void deleteCustomerById(Long customerId){
         customerDao.deleteCustomer(customerId);
@@ -57,6 +62,12 @@ public class CustomerService {
             customer.setAge(customerUpdateRequest.age());
             changes = true;
         }
+
+        if (customerUpdateRequest.gender() !=null && !customerUpdateRequest.gender().equals(customer.getGender())){
+            customer.setGender(customerUpdateRequest.gender());
+            changes = true;
+        }
+
         if(!changes){
             throw new RequestValidationException("no data changes found");
         }

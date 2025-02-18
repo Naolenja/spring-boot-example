@@ -3,6 +3,7 @@ package com.sol;
 import com.github.javafaker.Faker;
 import com.sol.customer.Customer;
 import com.sol.customer.CustomerRepository;
+import com.sol.customer.Gender;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -23,9 +24,9 @@ public class Main {
             String name = faker.name().fullName();
             String name1 = faker.name().fullName();
             Customer alex = new Customer(name,
-                    name.toLowerCase().replace(" ", ".") + "@gmail.com", random.nextInt(16,99));
+                    name.toLowerCase().replace(" ", ".") + "@gmail.com", random.nextInt(16,99), Gender.MALE);
             Customer lex = new Customer(name1,
-                    name1.toLowerCase().replace(" ", ".") + "@gmail.com", 19);
+                    name1.toLowerCase().replace(" ", ".") + "@gmail.com", 19, Gender.FEMALE);
             List<Customer> customers= List.of(alex, lex);
             customerRepository.saveAll(customers);
         };
