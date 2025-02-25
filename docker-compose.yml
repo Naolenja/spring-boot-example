@@ -25,6 +25,19 @@ services:
     depends_on:
       - db
     restart: unless-stopped
+  sol-react:
+    container_name: sol-react
+    image: solenja/sol-react
+    build:
+      context: frontend/react
+      args:
+        api_base_url: http://sol-api-env.eba-fjgs4ydm.eu-north-1.elasticbeanstalk.com:8
+    ports:
+      - "3003:5173"
+    depends_on:
+      - sol-api
+    restart: unless-stopped
+
 networks:
   db:
     driver: bridge

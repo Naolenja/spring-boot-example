@@ -55,7 +55,15 @@ function ResponsiveDrawer(props) {
       <Divider />
       <List>
         {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem key={text} disablePadding>
+          <ListItem
+            key={text}
+            disablePadding
+            sx={{
+                  '&:hover': {
+                    backgroundColor: '#f56565', //red.400 from ChakraUI
+                  },
+            }}
+          >
             <ListItemButton>
               <ListItemIcon>
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
@@ -68,7 +76,15 @@ function ResponsiveDrawer(props) {
       <Divider />
       <List>
         {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem key={text} disablePadding>
+          <ListItem
+            key={text}
+            disablePadding
+            sx={{
+                  '&:hover': {
+                    backgroundColor: '#f56565', //red.400 from ChakraUI
+                  },
+            }}
+          >
             <ListItemButton>
               <ListItemIcon>
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
