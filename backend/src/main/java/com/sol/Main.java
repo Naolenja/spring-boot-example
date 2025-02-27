@@ -24,7 +24,7 @@ public class Main {
             String name = faker.name().fullName();
             String name1 = faker.name().fullName();
             Customer alex = new Customer(name,
-                    name.toLowerCase().replace(" ", ".") + "@outrage.com", random.nextInt(16,99), Gender.MALE);
+                    name.toLowerCase().replace(" ", ".") + "@outlaw.com", random.nextInt(16,99), Gender.MALE);
             Customer lex = new Customer(name1,
                     name1.toLowerCase().replace(" ", ".") + "@gmail.com", 19, Gender.FEMALE);
             List<Customer> customers= List.of(alex, lex);
