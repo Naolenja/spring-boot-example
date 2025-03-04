@@ -246,7 +246,7 @@ class CustomerServiceTest {
     void canUpdateCustomerGender() {
         //Given
         Long id = 1L;
-        Gender newGender = Gender.randomGender();
+        Gender newGender = Gender.FEMALE;
         Customer customer =
                 new Customer(id,
                         "Xenofont",
