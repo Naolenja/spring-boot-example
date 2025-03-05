@@ -23,10 +23,16 @@ public class Main {
             Random random = new Random();
             String name = faker.name().fullName();
             String name1 = faker.name().fullName();
-            Customer alex = new Customer(name,
-                    name.toLowerCase().replace(" ", ".") + "@metal.com", random.nextInt(16,99), Gender.MALE);
-            Customer lex = new Customer(name1,
-                    name1.toLowerCase().replace(" ", ".") + "@gmail.com", 19, Gender.FEMALE);
+            Customer alex = new Customer(
+                    name,
+                    name.toLowerCase().replace(" ", ".") + "@metal.com",
+                    random.nextInt(16,99),
+                    Gender.MALE);
+            Customer lex = new Customer(
+                    name1,
+                    name1.toLowerCase().replace(" ", ".") + "@gmail.com",
+                    19,
+                    Gender.FEMALE);
             List<Customer> customers= List.of(alex, lex);
             customerRepository.saveAll(customers);
         };
