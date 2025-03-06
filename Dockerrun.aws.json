@@ -3,7 +3,7 @@
   "containerDefinitions": [
     {
       "name": "sol-api",
-      "image": "solenja/sol-api:04.03.2025.15.20.00",
+      "image": "solenja/sol-api:06.03.2025.13.36.46",
       "essential": true,
       "memory": 512,
       "portMappings": [
